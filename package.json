@@ -1,0 +1,28 @@
+{
+  "name": "mongoosecompare",
+  "version": "1.0.0",
+  "description": "Small util that allows to compare two vars when one can be mongo ID as a string and second can be populated document",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sielay/mongoosecompare.git"
+  },
+  "keywords": [
+    "mongoose",
+    "compare",
+    "model",
+    "schema"
+  ],
+  "author": "lukaszsielski@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "mongoose": "^4.0.0",
+    "top-require": "^0.1.0"
+  },
+  "devDependencies": {
+    "should": "^5.2.0"
+  }
+}
