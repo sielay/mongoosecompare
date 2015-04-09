@@ -37,6 +37,12 @@ if(comp(varA, varB)) {
 
 or see tests.
 
+Other features
+--------------
+
+ * Fallback any model or object ID to string ObjectId
+ * ObjectId validation more strict that mongoose.Types.ObjectId.isValid
+
 Dependecies
 -----------
 
