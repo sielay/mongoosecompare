@@ -23,6 +23,17 @@ var objectID   = mongoose.Types.ObjectId(),
 
 describe('Fallback to string', function () {
 
+    it('Should validate ObjectIDs', function() {
+        should(mComp.valid('wok express')).be.false;
+        should(mComp.valid('#wok express')).be.false;
+        should(mComp.valid(asString)).be.true;
+        should(mComp.valid(asString2)).be.true;
+        should(mongoose.Types.ObjectId.isValid('wok express')).be.false;
+        should(mongoose.Types.ObjectId.isValid('#wok express')).be.true;
+        should(mongoose.Types.ObjectId.isValid(asString)).be.true;
+        should(mongoose.Types.ObjectId.isValid(asString2)).be.true;
+    });
+
 
     it('Should understand an Object ID ', function () {
         should(mComp.str(objectID)).equal(asString);
@@ -96,5 +107,7 @@ describe('Comparision', function () {
             should(mComp(someObject4,stupid)).be.false; // for security reasons
         });
     });
+
+
 
 });

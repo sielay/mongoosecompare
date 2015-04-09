@@ -1,7 +1,8 @@
 'use strict';
 
 var topRequire = require('top-require'),
-    mongoose   = topRequire('mongoose');
+    mongoose   = topRequire('mongoose'),
+    validRegexp = /^[0-9a-fA-F]{24}$/;
 
 function compare(varA, varB) {
     var asStrA = compare.str(varA),
@@ -17,7 +18,7 @@ compare.str = function (anyVAR) {
     if (!anyVAR) return null;
 
     if (typeof anyVAR === 'string') {
-        if (mongoose.Types.ObjectId.isValid(anyVAR)) {
+        if (compare.valid(anyVAR)) {
             return anyVAR;
         }
         return null;
@@ -33,6 +34,10 @@ compare.str = function (anyVAR) {
 
     return null;
 
+};
+
+compare.valid= function(string) {
+    return validRegexp.test(string);
 };
 
 module.exports = compare;
